@@ -140,5 +140,7 @@ rest:
 Add the following line to your Secrets.yaml file 
 (replace YOUR_KEY with your real API key and LOCATION with your location-ID)
 
-```willyweather_tides_url: "https://api.willyweather.com.au/v2/YOUR_KEY/locations/LOCATION/weather.json?forecasts=tides&days=7"```
+```
+willyweather_tides_url: "https://api.willyweather.com.au/v2/YOUR_KEY/locations/LOCATION/weather.json?forecasts=tides&days=7"
+```
 
