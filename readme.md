@@ -143,4 +143,4 @@ Add the following line to your Secrets.yaml file
 ```
 willyweather_tides_url: "https://api.willyweather.com.au/v2/YOUR_KEY/locations/LOCATION/weather.json?forecasts=tides&days=7"
 ```
-
+Then restart your HomeAssistant as some of these change require a full reboot.
