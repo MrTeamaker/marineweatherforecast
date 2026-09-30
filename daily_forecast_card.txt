@@ -1,0 +1,11 @@
+type: custom:marine-forecast-card
+forecast_entity: sensor.marine_forecast_hourly
+daily_entity: sensor.marine_forecast_daily
+mode: mixed
+hourly_hours: 72
+hourly_step: 3
+daily_days: 7
+tide:
+  events_entity: sensor.ww_tide_events
+  high_time_entity: sensor.next_high_tide
+  low_time_entity: sensor.next_low_tide

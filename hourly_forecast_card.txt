@@ -1,0 +1,16 @@
+type: custom:marine-forecast-card
+forecast_entity: sensor.marine_forecast_hourly
+mode: hourly
+points: 8
+tide:
+  events_entity: sensor.ww_tide_events
+  high_time_entity: sensor.next_high_tide
+  low_time_entity: sensor.next_low_tide
+wind:
+  color_scale:
+    - - 15
+      - '#4CAF50'
+    - - 28
+      - '#FFC107'
+    - - Infinity
+      - '#F44336'
