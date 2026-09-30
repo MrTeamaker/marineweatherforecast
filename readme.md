@@ -20,8 +20,7 @@ marine forecast chart:
 - WillyWeather API integration is configured and working
 - BOM integration is working
 
-<img width="1138" height="598" alt="image" src="https://github.com/user-attachments/assets/e95c8193-6527-46fa-822d-b6c326b3a0d7" />
-
+<img width="1138" height="606" alt="image" src="https://github.com/user-attachments/assets/4f4ddcf4-4679-452e-967c-c8aee84202cb" />
 
 ## How to use it
 
