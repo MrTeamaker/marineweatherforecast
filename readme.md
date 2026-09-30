@@ -1,4 +1,5 @@
-Marine Forecast Card
+ # Marine Forecast Card for Lovelace
+
 
  A vanilla-JS Home Assistant Lovelace card that renders a WillyWeather-style
  marine forecast chart:
@@ -16,13 +17,13 @@ Marine Forecast Card
  the one place to edit for anything purely visual.
 
  THREE WAYS TO USE THE SAME CARD TYPE, via `mode`:
-   mode: "hourly"  — one forecast sensor, per-hour resolution throughout.
+  * mode: "hourly"  — one forecast sensor, per-hour resolution throughout.
                       Typically 8-72 points. Temperature/rain/labels are
                       shown per point.
-   mode: "daily"   — one forecast sensor, one point per day (7ish points).
+  * mode: "daily"   — one forecast sensor, one point per day (7ish points).
                       Barbs are off by default (daily averages are noisy);
                       turn them back on with wind: { show_barbs: true }.
-   mode: "mixed"   — TWO forecast sensors at once: `forecast_entity` (hourly)
+  * mode: "mixed"   — TWO forecast sensors at once: `forecast_entity` (hourly)
                       for the near term — limited by how far out your
                       provider actually gives hourly data, WillyWeather is
                       ~3-4 days — then `daily_entity` (daily) for the rest
@@ -30,6 +31,7 @@ Marine Forecast Card
                       automatically switch from per-hour to per-day at the
                       point where the chart switches sources. This is what
                       a "7-day forecast" card should use.
+    
  The x-axis is always time-proportional (not just evenly spaced by point
  index), so a day made of hourly points takes up exactly as much width as
  a day represented by a single daily point.
@@ -45,7 +47,7 @@ Marine Forecast Card
      often don't, that's normal, not a sign anything's broken).
   4. Bump a `?v=2` style query string on the Resources URL every time you
      update this file, or the browser/HA frontend will keep serving a
-     cached copy — this bit us many, many times during development.
+     cached copy — this can bite you if you make a lot of changes.
 
  DATA SOURCES — none of this comes from one place:
 
@@ -102,9 +104,11 @@ Marine Forecast Card
     home location. No sensor needed; sunrise/sunset are computed in-card
     with a standard astronomical formula.
 
-Add the following lines to your configuration.yaml (ensure you only have one rest key)
+Other HomeAssistant changes that are needed:
 
-rest:
+1. Add the following lines to your configuration.yaml (ensure you only have one rest key)
+
+```rest:
 - resource: !secret willyweather_tides_url
   scan_interval: 21600
    sensor:
@@ -114,9 +118,9 @@ rest:
        json_attributes_path: "$.forecasts.tides"
        json_attributes:
          - days
+```
 
+2. Add the following line to your secrets.yaml file (replace YOUR_KEY with the real key)
 
-Add the following line to your secrets.yaml file (replace YOUR_KEY with the real key)
-
-willyweather_tides_url: "https://api.willyweather.com.au/v2/YOUR_KEY/locations/19546/weather.json?forecasts=tides&days=7"
+```willyweather_tides_url: "https://api.willyweather.com.au/v2/YOUR_KEY/locations/19546/weather.json?forecasts=tides&days=7"```
 
